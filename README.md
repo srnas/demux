@@ -2,7 +2,9 @@
 Perl script to demux gromacs trajectories.
 It is based on the official one found in the gromacs distribution and includes the following fixes:
 
-1. It allows long trajectories to be processed correctly.
+Long trajectories
+-----------------
+It allows long trajectories to be processed correctly.
 
 The script solves an issue in the original demux.pl that makes the demuxed trajectories when the following conditions are simultaneously true:
 - Trajectories are longer than 100 ns
@@ -12,9 +14,12 @@ At variance with the original script, this script asks interactively the timeste
 
 This modification has been implemented and tested by Andrea Perez-Villa and Sandro Bottaro.
 
-2. It allows trajectories obtained with random exchange patterns to be processed correctly.
-  This is important in bias exchange metadynamics, and in general when using the "RANDOM EXCHANGES"
-  keyword of PLUMED
+Random exchange patterns
+-----------------------
+
+It allows trajectories obtained with random exchange patterns to be processed correctly.
+This is important in bias exchange metadynamics, and in general when using the "RANDOM EXCHANGES"
+keyword of PLUMED
 
 This modification has been implemented and tested by Richard Cunha and Giovanni Bussi.
 
