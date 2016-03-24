@@ -104,11 +104,13 @@ while ($line = <IN_FILE>) {
 	    $k = 0;
 	    for($m=3; ($m<$#log_line); $m++) {
 		if ($log_line[$m] eq "x") {
-		    $revorder[$order[$k]] = $k+1;
-		    $revorder[$order[$k+1]] = $k;
-		    $tmp = $order[$k];
-		    $order[$k] = $order[$k+1];
-		    $order[$k+1] = $tmp;
+                    $mp1 = $log_line[$m+1];
+                    $mm1 = $log_line[$m-1];
+		    $revorder[$order[$mm1]] = $mp1;
+		    $revorder[$order[$mp1]] = $mm1;
+		    $tmp = $order[$mm1];
+		    $order[$mm1] = $order[$mp1];
+		    $order[$mp1] = $tmp;
 #	    printf ("Swapping %d and %d on line %d\n",$k,$k+1,$line_number); 
 		}
 		else {
